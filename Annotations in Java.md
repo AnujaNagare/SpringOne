@@ -1,3 +1,6 @@
+
+*What is Annotation in Java ?*
+
 -  Annotations help to associate metadata (information) to the program elements 
   -  i.e. instance variables, constructors, methods, classes, etc.
 

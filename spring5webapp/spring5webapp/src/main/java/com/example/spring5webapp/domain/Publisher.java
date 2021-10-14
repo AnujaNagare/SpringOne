@@ -1,11 +1,14 @@
 package com.example.spring5webapp.domain;
 
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Publisher {
@@ -35,6 +38,11 @@ public class Publisher {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	@OneToMany
+	@JoinColumn(name = "publisher_id")
+	private Set<Book> books = new HashSet<>();
+	
 	public Publisher(String name, String address) {
 		this.name = name;
 		this.address = address;
@@ -43,6 +51,12 @@ public class Publisher {
 	}
 	
 	
+	public Set<Book> getBooks() {
+		return books;
+	}
+	public void setBooks(Set<Book> books) {
+		this.books = books;
+	}
 	@Override
 	public String toString() {
 		return "Publisher [id=" + id + ", name=" + name + ", address=" + address + "]";

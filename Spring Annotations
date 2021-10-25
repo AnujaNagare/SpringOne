@@ -1,0 +1,12 @@
+In most typical applications, we have distinct layers like data access, presentation, service, business, etc.
+
+Additionally, in each layer we have various beans. To detect these beans automatically, Spring uses classpath scanning annotations.
+
+Then it registers each bean in the ApplicationContext.
+
+Here's a quick overview of a few of these annotations:
+
+@Component is a generic stereotype for any Spring-managed component.
+@Service annotates classes at the service layer.
+@Repository annotates classes at the persistence layer, which will act as a database repository.
+

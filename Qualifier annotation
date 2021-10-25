@@ -1,0 +1,30 @@
+- By using the @Qualifier annotation, we can eliminate the issue of which bean needs to be injected.
+
+see how we solve the problem by including the @Qualifier annotation to indicate which bean we want to use:
+
+public class FooService {
+     
+    @Autowired
+    @Qualifier("fooFormatter")
+    private Formatter formatter;
+}
+
+By including the @Qualifier annotation, together with the name of the specific implementation we want to use, 
+in this example Foo, we can avoid ambiguity when Spring finds multiple beans of the same type.
+
+We need to take into consideration that the qualifier name to be used is the one declared in the @Component annotation.
+
+Note that we could have also used the @Qualifier annotation on the Formatter implementing classes, 
+instead of specifying the names in their @Component annotations, to obtain the same effect:
+
+@Component
+@Qualifier("fooFormatter")
+public class FooFormatter implements Formatter {
+    //...
+}
+
+@Component
+@Qualifier("barFormatter")
+public class BarFormatter implements Formatter {
+    //...
+}

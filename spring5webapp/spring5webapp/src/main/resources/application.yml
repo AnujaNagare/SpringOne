@@ -6,4 +6,7 @@ spring:
     console:      enabled: true  
 
  
-   
+my:
+  greeting: Hello World
+  list:
+    values: One, Two, Three   

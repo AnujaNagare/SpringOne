@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import com.example.sfgdi.controllers.ConstructorInjectedController;
 import com.example.sfgdi.controllers.I18nController;
 import com.example.sfgdi.controllers.MyController;
+import com.example.sfgdi.controllers.PetController;
 import com.example.sfgdi.controllers.PropertyInjectedController;
 import com.example.sfgdi.controllers.SetterInjectedController;
 
@@ -18,6 +19,9 @@ public class SfgDiApplication {
 		
 		MyController myController = (MyController) ctx.getBean("myController");
 		
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("--- The Best Pet is ---");
+		System.out.println(petController.whichPetIsTheBest());
 		
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 		System.out.println(i18nController.sayHello());
